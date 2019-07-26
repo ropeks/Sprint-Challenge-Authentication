@@ -1,4 +1,3 @@
-const knex = require('knex');
 const db = require("./../database/dbConfig");
 
 function addUser(user) {
@@ -16,7 +15,15 @@ function getUser(id) {
       .first();
 }
 
+
+function getUserBy(filter) {
+    return db('users')
+        .where(filter)
+        .first();
+}
+
 module.exports = {
     getUser,
+    getUserBy,
     addUser
 };
